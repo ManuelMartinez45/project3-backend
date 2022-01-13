@@ -5,6 +5,7 @@ const shoulderSeed = require('../models/seeds/shoulderSeed')
 const backSeed = require('../models/seeds/backSeed')
 const legSeed = require('../models/seeds/legSeed')
 const armSeed = require('../models/seeds/armSeed')
+const coreSeed = require('../models/seeds/coreSeed')
 
 exerciseRouter.get('/seed', async (req,res) => {
     await Exercise.deleteMany({})
@@ -14,7 +15,8 @@ exerciseRouter.get('/seed', async (req,res) => {
         await Exercise.create(backSeed)
         await Exercise.create(legSeed)
         await Exercise.create(armSeed)
-       return  res.redirect('/')
+        await Exercise.create(coreSeed)
+        return  res.redirect('/')
     }
     exerciseSeed()
 })
