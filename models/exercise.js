@@ -19,7 +19,6 @@ const exerciseSchema = new Schema({
         type: [String],
         required: true
     },
-    description: String,
     img: String,
     equipment: {
         type:[String],
