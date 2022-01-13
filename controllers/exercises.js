@@ -2,15 +2,21 @@ const exerciseRouter = require('express').Router()
 const Exercise = require('../models/exercise')
 const chestSeed = require('../models/seeds/chestSeed')
 const shoulderSeed = require('../models/seeds/shoulderSeed')
+const backSeed = require('../models/seeds/backSeed')
+const legSeed = require('../models/seeds/legSeed')
+const armSeed = require('../models/seeds/armSeed')
 
 exerciseRouter.get('/seed', async (req,res) => {
     await Exercise.deleteMany({})
     async function exerciseSeed (){
         await Exercise.create(chestSeed)
         await Exercise.create(shoulderSeed)
+        await Exercise.create(backSeed)
+        await Exercise.create(legSeed)
+        await Exercise.create(armSeed)
+       return  res.redirect('/')
     }
     exerciseSeed()
-    res.redirect('/')
 })
 
 exerciseRouter.get('/', async (req,res) => {
