@@ -4,15 +4,15 @@ module.exports = [
         main: 'Shoulders',
         primary: 'Front Delt',
         secondary: ['Tricep', 'Core'],
+        img: 'https://s-media-cache-ak0.pinimg.com/originals/0c/86/c9/0c86c9a200fa68372456686637094f94.png',
+        equipment: ['Barbell'],
+        mechanics: 'Compound',
         perform: [
             'To begin this exercise; start off by taking a weighted barbell and have it pressed up against your chest with your palms facing outward.',
             'With the barbell in position, lift it above your head with locked arms and hold for a few seconds squeezing your back and shoulders tightly.',
             'Return back to the starting position.',
             'Repeat this exercise for as many repetitions as needed.'
         ],
-        img: 'https://s-media-cache-ak0.pinimg.com/originals/0c/86/c9/0c86c9a200fa68372456686637094f94.png',
-        equipment: ['Barbell'],
-        mechanics: 'Compound'
     },
     {
         name: 'Dumbbell Arnold Press',
@@ -57,9 +57,5 @@ module.exports = [
             'Slightly bend at your knees and then slowly raise your arms at your sides until your palms face the floor.',
             'Once you reach the top position, hold for a count, squeezing your shoulder muscles then return back to the starting position.'
         ]
-    },
-    {
-
     }
-    
 ]
