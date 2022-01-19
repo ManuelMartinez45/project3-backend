@@ -31,31 +31,31 @@ workoutRouter.get('/workouts', async (req,res) => {
 
 
 // // Exercise Index Post Route
-// workoutRouter.post('/exercises', async (req,res) => {
-//     try{
-//         res.json(await Exercise.create(req.body))
-//     } catch (error){
-//         res.status(400).json(error)
-//     }
-// })
+workoutRouter.post('/workouts', async (req,res) => {
+    try{
+        res.json(await Workout.create(req.body))
+    } catch (error){
+        res.status(400).json(error)
+    }
+})
 
 // // Exercise Delete Route
-// workoutRouter.delete('/exercises/:id', async (req,res) => {
-//     try{
-//         res.json(await Exercise.findByIdAndDelete(req.params.id))
-//     } catch (error){
-//         res.status(400).json(error)
-//     }
-// })
+workoutRouter.delete('/workouts/:id', async (req,res) => {
+    try{
+        res.json(await Workout.findByIdAndDelete(req.params.id))
+    } catch (error){
+        res.status(400).json(error)
+    }
+})
 
 // // Exercise Update Route
-// workoutRouter.put('/exercises/:id', async (req,res) => {
-//     try{
-//         res.json(await Exercise.findByIdAndUpdate(req.params.id, req.body, {new: true}))
-//     } catch (error){
-//         res.status(400).json(error)
-//     }
-// })
+workoutRouter.put('/workouts/:id', async (req,res) => {
+    try{
+        res.json(await Workout.findByIdAndUpdate(req.params.id, req.body, {new: true}))
+    } catch (error){
+        res.status(400).json(error)
+    }
+})
 
 
 
