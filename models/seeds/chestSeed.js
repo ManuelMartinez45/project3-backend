@@ -22,7 +22,7 @@ module.exports = [
         main: 'Chest',
         primary: 'Full',
         secondary: ['Shoulders', 'Tricep'],
-        img: 'https://i.pinimg.com/originals/cf/e0/b1/cfe0b17fd27ee31b4c8d80c27f159d82.jpg',
+        img: 'https://weighttraining.guide/wp-content/uploads/2016/05/Dumbbell-Bench-Press-resized.png',
         equipment: ['Dumbbell', 'Bench'],
         mechanics: 'Compound',
         perform: [

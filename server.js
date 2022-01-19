@@ -3,6 +3,7 @@ const app = express()
 const mongoose = require('mongoose')
 const cors = require('cors')
 const exerciseController = require('./controllers/exercises')
+const workoutController = require('./controllers/workoutRouter')
 
 require('dotenv').config()
 
@@ -18,5 +19,6 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/', exerciseController)
+app.use('/', workoutController)
 
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`))

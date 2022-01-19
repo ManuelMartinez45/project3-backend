@@ -6,6 +6,7 @@ const backSeed = require('../models/seeds/backSeed')
 const legSeed = require('../models/seeds/legSeed')
 const armSeed = require('../models/seeds/armSeed')
 const coreSeed = require('../models/seeds/coreSeed')
+const Workout = require('../models/workout')
 
 exerciseRouter.get('/seed', async (req,res) => {
     await Exercise.deleteMany({})
@@ -21,14 +22,36 @@ exerciseRouter.get('/seed', async (req,res) => {
     exerciseSeed()
 })
 
-// Exercise Index Page
-exerciseRouter.get('/exercises', async (req,res) => {
+exerciseRouter.get('/', async (req,res) => {
     try{
         res.json(await Exercise.find({}))
-    } catch (error){
+    }catch(error){
         res.status(400).json(error)
     }
 })
+// Exercise Index Page
+// exerciseRouter.get('/exercises', async (req,res) => {
+//     try{
+//         res.json(await Exercise.find({}))
+//     }catch(error){
+//         res.status(400).json(error)
+//     }
+// })
+
+exerciseRouter.get('/exercises/:muscleGroup', async(req,res) => {
+    // const exercises = Exercise.find({
+    //     main: req.params.muscleGroup
+    // })
+    // res.json(exercises)
+    try{
+        res.json(await Exercise.find({
+            main: req.params.muscleGroup
+        }))
+    } catch(err){
+        res.status(400).json(err)
+    }
+})
+
 
 // Exercise Index Post Route
 exerciseRouter.post('/exercises', async (req,res) => {
