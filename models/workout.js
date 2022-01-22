@@ -7,20 +7,23 @@ const workoutSchema = new Schema({
         required: true
     },
     split: {
-        type: Number,
+        type: String,
         required: true
     },
-    exercises: [{
-        name: String, 
-        sets: {
-            type: String, 
-            required: true
-            },
-        reps: {
-            type: String,
-            required: true
-        }
-    }]
+    days: [{
+        exercises: [{
+            name: String, 
+            sets: {
+                type: String, 
+                required: true
+                },
+            reps: {
+                type: String,
+                required: true
+            }
+        }]
+    }
+    ],
 })
 
 const Workout = mongoose.model('Workout', workoutSchema)
