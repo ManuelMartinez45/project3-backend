@@ -25,7 +25,13 @@ mongoose.connection
     .on('close', () => console.log('Disconnected to MongoDB'))
     .on('error', (err) => console.log(err))
 
-app.use(cors())
+corsOptions = {
+    origin: '*',
+    credentials: true,
+    optionSuccessStatus: 200,
+}
+
+app.use(cors(corsOptions))
 app.use(express.json())
 
 app.use('/', exerciseController)
