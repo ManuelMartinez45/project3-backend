@@ -28,7 +28,7 @@ mongoose.connection
 app.use(cors())
 app.use(express.json())
 
-app.use('/', exerciseController)
 app.use('/', workoutController)
+app.use('/', exerciseController)
 
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`))
