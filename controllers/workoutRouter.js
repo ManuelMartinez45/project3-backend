@@ -2,6 +2,8 @@ const workoutRouter = require('express').Router()
 const Workout = require('../models/workout')
 const workouts = require('../models/seeds/workoutSeed')
 
+const admin = require('firebase-admin')
+
 workoutRouter.get('/seed', async (req,res) => {
     await Workout.deleteMany({})
     async function workoutSeed(){
@@ -11,13 +13,13 @@ workoutRouter.get('/seed', async (req,res) => {
     workoutSeed()
 })
 
-workoutRouter.get('/', async (req,res) => {
-    try{
-        res.json(await Workout.find({}))
-    }catch(error){
-        res.status(400).json(error)
-    }
-})
+// workoutRouter.get('/', async (req,res) => {
+//     try{
+//         res.json(await Workout.find({}))
+//     }catch(error){
+//         res.status(400).json(error)
+//     }
+// })
 // Exercise Index Page
 workoutRouter.get('/workouts', async (req,res) => {
     try{
@@ -27,11 +29,21 @@ workoutRouter.get('/workouts', async (req,res) => {
     }
 })
 
+workoutRouter.get('/workouts/:id', async (req,res) => {
+    try{
+        res.json(await Workout.findById(req.params.id))
+    } catch(err){
+        res.status(400).json(error)
+    }
+})
 
 
-
-// // Exercise Index Post Route
+// // Exercise Create Post Route
 workoutRouter.post('/workouts', async (req,res) => {
+    const token = req.get('Authorization')
+    if(!token) return res.status(400).json({message: 'Must be Logged In first'})
+    const user = await admin.auth().verifyIdToken(token.replace('Bearer ', ''))
+    req.body.uId = user.uid
     try{
         res.json(await Workout.create(req.body))
     } catch (error){

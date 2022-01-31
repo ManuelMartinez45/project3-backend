@@ -5,6 +5,16 @@ const cors = require('cors')
 const exerciseController = require('./controllers/exercises')
 const workoutController = require('./controllers/workoutRouter')
 
+
+const admin = require('firebase-admin')
+
+const serviceAccount = require('./service-account-credentials.json')
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccount)
+});
+
+
 require('dotenv').config()
 
 const {DATABASE_URL, PORT} = process.env

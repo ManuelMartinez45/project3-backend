@@ -52,6 +52,16 @@ exerciseRouter.get('/exercises/:muscleGroup', async(req,res) => {
     }
 })
 
+exerciseRouter.get('/exercises/:muscleGroup/:exercise', async (req,res) => {
+    try{
+        res.json(await Exercise.find({
+            main: req.params.muscleGroup,
+            name: req.params.exercise
+        }))
+    }catch(err){
+        res.status(400).json(err)
+    }
+})
 
 // Exercise Index Post Route
 exerciseRouter.post('/exercises', async (req,res) => {
