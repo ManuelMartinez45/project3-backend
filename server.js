@@ -29,6 +29,6 @@ app.use(cors())
 app.use(express.json())
 
 app.use('/', exerciseController)
-app.use('/workouts', workoutController)
+app.use('/', workoutController)
 
 app.listen(PORT, () => console.log(`Listening on PORT: ${PORT}`))
