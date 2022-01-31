@@ -24,7 +24,6 @@ const workoutSchema = new Schema({
         }]
     }
     ],
-    uId: String
 })
 
 const Workout = mongoose.model('Workout', workoutSchema)

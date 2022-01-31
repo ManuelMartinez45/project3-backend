@@ -5,16 +5,6 @@ const cors = require('cors')
 const exerciseController = require('./controllers/exercises')
 const workoutController = require('./controllers/workoutRouter')
 
-
-const admin = require('firebase-admin')
-
-const serviceAccount = require('./service-account-credentials.json')
-
-admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount)
-});
-
-
 require('dotenv').config()
 
 const {DATABASE_URL, PORT} = process.env
@@ -25,13 +15,7 @@ mongoose.connection
     .on('close', () => console.log('Disconnected to MongoDB'))
     .on('error', (err) => console.log(err))
 
-corsOptions = {
-    origin: '*',
-    credentials: true,
-    optionSuccessStatus: 200,
-}
-
-app.use(cors(corsOptions))
+app.use(cors())
 app.use(express.json())
 
 app.use('/', exerciseController)
