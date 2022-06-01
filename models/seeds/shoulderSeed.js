@@ -46,7 +46,7 @@ module.exports = [
     },
     {
         name: 'Dumbell Lateral Raise',
-        main: 'Shoulder',
+        main: 'Shoulders',
         primary: 'Middle Delt',
         secondary: ['Traps'],
         mechanics: 'Isolation',
